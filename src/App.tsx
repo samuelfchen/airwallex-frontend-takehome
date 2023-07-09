@@ -3,13 +3,13 @@ import { Footer } from "./components/folder/Footer";
 import { Header } from "./components/header/Header";
 
 function App() {
-	return (
+  return (
     <div className="flex flex-col h-screen justify-between">
-      <Header/>
-      <Body/>
-      <Footer/>
+      <Header />
+      <Body />
+      <Footer />
     </div>
-	);
+  );
 }
 
 export default App;
