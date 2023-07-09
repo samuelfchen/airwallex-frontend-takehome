@@ -31,6 +31,7 @@ export const Body = () => {
           {/* Modal */}
           <dialog id="modal" className="modal">
             <div className="modal-box rounded-none">
+              {/* TODO: figure out a way to reset component state after closing modal */}
               <SignupForm />
             </div>
             <form method="dialog" className="modal-backdrop">
