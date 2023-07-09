@@ -1,15 +1,8 @@
-import { useState } from "react";
-import { Modal } from "./components/Modal";
-import { SignupForm } from "./components/SignupForm";
+import { SignupForm } from "../signup-form/SignupForm";
 
 export const Body = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <div>
-      <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}>
-        <SignupForm />
-      </Modal>
       <div className="w-full flex justify-center items-center">
         <div className="w-2/3 text-center">
           <h1 className="text-6xl font-bold mb-5">
@@ -22,11 +15,28 @@ export const Body = () => {
           <button
             className="bg-white hover:bg-slate-100 py-4 px-4 border border-black"
             onClick={() => {
-              setIsModalOpen(true);
+              // Fetch and open DaisyUI modal
+              if (document) {
+                const modalElement = document.getElementById(
+                  "modal"
+                ) as HTMLElement & {
+                  showModal: () => void;
+                };
+                modalElement.showModal();
+              }
             }}
           >
             Request an invite
           </button>
+          {/* Modal */}
+          <dialog id="modal" className="modal">
+            <form method="dialog" className="modal-box rounded-none">
+              <SignupForm />
+            </form>
+            <form method="dialog" className="modal-backdrop">
+              <button>close</button>
+            </form>
+          </dialog>
         </div>
       </div>
     </div>
