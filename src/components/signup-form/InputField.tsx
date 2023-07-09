@@ -1,18 +1,27 @@
 export const InputField = (props: {
   placeholder?: string;
-  onChange: (s: string) => void;
+  onValueChange: (s: string) => void;
+  error?: string;
   tw?: string;
 }) => {
   return (
-    <input
-      type="text"
-      placeholder={props.placeholder ?? ""}
-      className={`input input-bordered w-full rounded-none my-2 ${
-        props.tw ?? ""
-      }`}
-      onChange={(e) => {
-        props.onChange(e.target.value);
-      }}
-    />
+    <div>
+      <input
+        type="text"
+        placeholder={props.placeholder ?? ""}
+        className={`input input-bordered w-full rounded-none ${
+          props.error !== undefined ? "input-error" : "mb-7"
+        } ${props.tw ?? ""}`}
+        onChange={(e) => {
+          props.onValueChange(e.target.value);
+        }}
+        // TODO: only perform validation on blur
+      />
+      {props.error !== undefined && (
+        <label className="label my-0">
+          <span className="label-text-alt text-red-400">{props.error}</span>
+        </label>
+      )}
+    </div>
   );
 };
