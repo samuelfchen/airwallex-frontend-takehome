@@ -30,9 +30,9 @@ export const Body = () => {
           </button>
           {/* Modal */}
           <dialog id="modal" className="modal">
-            <form method="dialog" className="modal-box rounded-none">
+            <div className="modal-box rounded-none">
               <SignupForm />
-            </form>
+            </div>
             <form method="dialog" className="modal-backdrop">
               <button>close</button>
             </form>
