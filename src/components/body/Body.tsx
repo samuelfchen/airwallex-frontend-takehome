@@ -11,6 +11,7 @@ export const Body = () => {
       <div className="w-full flex justify-center items-center">
         <div className="sm:w-2/3 w-3/4 text-center">
           <h1 className="sm:text-6xl text-4xl font-bold mb-5">
+            {/* TODO: adjust for mobile scaling, increase line height */}
             A better way <br />
             to enjoy every day.
           </h1>
