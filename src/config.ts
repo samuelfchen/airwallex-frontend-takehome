@@ -12,7 +12,7 @@ const getConfig = (): Env => {
   };
 };
 
-const getSanitizedConfig = (config: Env): Config => {
+export const getSanitizedConfig = (config: Env): Config => {
   // Check that required envs are provided
   Object.entries(config).forEach(([k, v]) => {
     if (v === undefined) throw new Error(`Missing key ${k} in env.`);
