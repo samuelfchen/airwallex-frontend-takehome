@@ -17,6 +17,7 @@ const getSanitizedConfig = (config: Env): Config => {
   Object.entries(config).forEach(([k, v]) => {
     if (v === undefined) throw new Error(`Missing key ${k} in env.`);
   });
+  console.log(config);
 
   return {
     API_URL: new URL(config.API_URL!),
