@@ -9,8 +9,8 @@ export const Body = () => {
   return (
     <div>
       <div className="w-full flex justify-center items-center">
-        <div className="w-2/3 text-center">
-          <h1 className="text-6xl font-bold mb-5">
+        <div className="sm:w-2/3 w-3/4 text-center">
+          <h1 className="sm:text-6xl text-4xl font-bold mb-5">
             A better way <br />
             to enjoy every day.
           </h1>
