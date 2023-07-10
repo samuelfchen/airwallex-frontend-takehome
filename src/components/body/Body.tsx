@@ -25,9 +25,7 @@ export const Body = () => {
               if (document) {
                 const modalElement = document.getElementById(
                   "modal"
-                ) as HTMLElement & {
-                  showModal: () => void;
-                };
+                ) as HTMLDialogElement;
                 modalElement.showModal();
                 setIsModalOpen(true);
               }
@@ -46,9 +44,17 @@ export const Body = () => {
             }}
           >
             <div className="modal-box rounded-none">
-              {isModalOpen && <ModalContent />}
+              {isModalOpen && (
+                <div data-testid="modal-content">
+                  <ModalContent />
+                </div>
+              )}
             </div>
-            <form method="dialog" className="modal-backdrop">
+            <form
+              data-testid="modal-backdrop"
+              method="dialog"
+              className="modal-backdrop"
+            >
               <button>close</button>
             </form>
           </dialog>
