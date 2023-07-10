@@ -1,5 +1,5 @@
 import { FieldError, Path, UseFormRegister, Validate } from "react-hook-form";
-import { FormInput } from "./SignupForm";
+import { FormInput } from "../SignupForm";
 
 export const InputField = (props: {
   placeholder?: string;
@@ -9,9 +9,9 @@ export const InputField = (props: {
   validate?: Validate<string, FormInput>;
 }) => {
   return (
-    <div>
+    <div data-testid={`${props.label}-input`}>
       <input
-        id="fullName"
+        id={props.label}
         className={`
               input input-bordered w-full rounded-none 
               ${props.error !== undefined ? "input-error" : "mb-5"}
