@@ -1,5 +1,5 @@
 import { FieldError, Path, UseFormRegister, Validate } from "react-hook-form";
-import { FormInput } from "../SignupForm";
+import { FormInput } from "./SignupForm";
 
 export const InputField = (props: {
   placeholder?: string;

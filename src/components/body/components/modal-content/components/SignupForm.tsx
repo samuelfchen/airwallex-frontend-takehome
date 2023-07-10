@@ -1,8 +1,8 @@
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import * as EmailValidator from "email-validator";
-import { InputField } from "./components/InputField";
-import { SubmitButton } from "./components/SubmitButton";
-import { axiosClient } from "../../../../api";
+import { InputField } from "./InputField";
+import { SubmitButton } from "./SubmitButton";
+import { axiosClient } from "../../../../../api";
 import axios from "axios";
 import { useState } from "react";
 
