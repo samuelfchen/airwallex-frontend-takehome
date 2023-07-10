@@ -45,7 +45,7 @@ export const SignupForm = (props: { setSuccess: () => void }) => {
   };
 
   return (
-    <div id="signup-form">
+    <div data-testid="signup-form" id="signup-form">
       {/* Title */}
       <h3 className="italic font-bold text-lg mt-8">Request an invite</h3>
       {/* Divider */}
