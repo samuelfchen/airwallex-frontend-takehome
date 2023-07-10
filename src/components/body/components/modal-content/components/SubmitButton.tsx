@@ -1,5 +1,4 @@
 export const SubmitButton = (props: { isSubmitting: boolean }) => {
-  console.log(props);
   return (
     <button
       type="submit"
