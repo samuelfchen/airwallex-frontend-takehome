@@ -33,7 +33,6 @@ export const SignupForm = (props: { setSuccess: () => void }) => {
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
         // Set error message to response message
-        console.log(error);
         const data = error.response.data as { errorMessage: string };
         setErrorMessage(data.errorMessage ?? "");
       }
