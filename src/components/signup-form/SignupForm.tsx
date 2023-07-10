@@ -1,47 +1,32 @@
-import { useEffect, useState } from "react";
-import { SubmitButton } from "./components/SubmitButton";
-import _ from "lodash";
+import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import * as EmailValidator from "email-validator";
 import { InputField } from "./components/InputField";
+import { SubmitButton } from "./components/SubmitButton";
+
+export interface FormInput {
+  fullName: string;
+  email: string;
+  confirmEmail: string;
+}
 
 export const SignupForm = () => {
-  const [fullName, setFullName] = useState<string>();
-  const [email, setEmail] = useState<string>();
-  const [confirmEmail, setConfirmEmail] = useState<string>();
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormInput>();
 
-  const [emailError, setEmailError] = useState<string>();
-  const [fullNameError, setFullNameError] = useState<string>();
-  const [confirmEmailError, setConfirmEmailError] = useState<string>();
-
-  useEffect(() => {
-    // TODO: tidy this up
-    if (fullName !== undefined && fullName.length === 0) {
-      setFullNameError("This field is required!");
-    } else {
-      setFullNameError(undefined);
-    }
-    // validate email and confirm email
-    if (email !== undefined) {
-      if (EmailValidator.validate(email)) {
-        setEmailError(undefined);
-      } else if (email.length === 0) {
-        setEmailError("This field is required!");
-      } else {
-        // Invalid email
-        setEmailError("Invalid email!");
-      }
-    }
-    if (confirmEmail !== undefined && email !== undefined) {
-      if (confirmEmail === email) {
-        setConfirmEmailError(undefined);
-      } else if (confirmEmail.length === 0) {
-        setConfirmEmailError("This field is required!");
-      } else {
-        // Invalid email
-        setConfirmEmailError("Emails should match!");
-      }
-    }
-  }, [email, confirmEmail, fullName]);
+  const onSubmit: SubmitHandler<FormInput> = async (data, event) => {
+    // TODO: handle success and error cases
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    console.log(data);
+    event?.preventDefault();
+  };
+  const onError: SubmitErrorHandler<FormInput> = (errors, event) => {
+    console.log("err", errors);
+    event?.preventDefault();
+  };
 
   return (
     <div id="signup-form">
@@ -52,30 +37,43 @@ export const SignupForm = () => {
         <div className="w-[60px] border-t border-gray-400"></div>
       </div>
       {/* Input fields */}
-      <div className="max-w-md mb-8">
+      <form
+        className="max-w-md mb-8 text-left"
+        onSubmit={handleSubmit(onSubmit, onError)}
+        noValidate
+      >
         <InputField
           placeholder="Full Name"
-          onValueChange={(value) => {
-            setFullName(value);
-          }}
-          error={fullNameError}
+          error={errors.fullName}
+          register={register}
+          label="fullName"
         />
         <InputField
           placeholder="Email"
-          onValueChange={(value) => {
-            setEmail(value);
+          error={errors.email}
+          register={register}
+          label="email"
+          validate={(val) => {
+            if (EmailValidator.validate(val) === false) {
+              return "Please enter a valid email.";
+            }
           }}
-          error={emailError}
         />
         <InputField
           placeholder="Confirm Email"
-          onValueChange={(value) => {
-            setConfirmEmail(value);
+          error={errors.confirmEmail}
+          register={register}
+          label="confirmEmail"
+          validate={(val) => {
+            if (EmailValidator.validate(val) === false) {
+              return "Please enter a valid email.";
+            } else if (watch("email") !== val) {
+              return "Emails should match.";
+            }
           }}
-          error={confirmEmailError}
         />
-        <SubmitButton isLoading={false} />
-      </div>
+        <SubmitButton isSubmitting={isSubmitting} />
+      </form>
     </div>
   );
 };

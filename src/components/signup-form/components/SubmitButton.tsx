@@ -1,12 +1,12 @@
-export const SubmitButton = (props: { isLoading: boolean }) => {
+export const SubmitButton = (props: { isSubmitting: boolean }) => {
+  console.log(props);
   return (
     <button
-      className="bg-white hover:bg-slate-100 mt-8 p-2 w-full border border-black"
-      onClick={() => {
-        return;
-      }}
+      type="submit"
+      className="bg-white hover:bg-slate-100 mt-8 p-2 w-full border border-black disabled:bg-slate-100"
+      disabled={props.isSubmitting}
     >
-      {props.isLoading ? "Sending, please wait..." : "Send"}
+      {props.isSubmitting ? "Sending, please wait..." : "Send"}
     </button>
   );
 };
