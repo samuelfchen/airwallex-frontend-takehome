@@ -34,7 +34,7 @@ export const SignupForm = (props: { setSuccess: () => void }) => {
       if (axios.isAxiosError(error) && error.response) {
         // Set error message to response message
         const data = error.response.data as { errorMessage: string };
-        setErrorMessage(data.errorMessage ?? "");
+        setErrorMessage(data.errorMessage ?? "Something went wrong.");
       }
     } finally {
       event?.preventDefault();
