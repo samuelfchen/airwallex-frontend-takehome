@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SignupForm } from "./components/SignupForm";
+import { SignupForm } from "./components/signup/SignupForm";
 import { Success } from "./components/Success";
 
 export const ModalContent = () => {
