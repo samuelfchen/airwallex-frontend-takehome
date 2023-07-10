@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { InputField } from "./InputField";
-import { SubmitButton } from "./SubmitButton";
+import { SubmitButton } from "./components/SubmitButton";
 import _ from "lodash";
 import * as EmailValidator from "email-validator";
+import { InputField } from "./components/InputField";
 
 export const SignupForm = () => {
   const [fullName, setFullName] = useState<string>();
