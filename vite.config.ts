@@ -11,6 +11,7 @@ export default defineConfig({
     environment: "jsdom",
     css: true,
     reporters: ["verbose"],
+    setupFiles: "./src/setupTests.ts",
     coverage: {
       provider: "istanbul",
       reporter: ["text", "json", "html"],
