@@ -1,6 +1,6 @@
 export const Success = () => {
   return (
-    <div id="signup-form">
+    <div data-testid="success-modal" id="success-modal">
       {/* Title */}
       <h3 className="italic font-bold text-lg mt-8">All done!</h3>
       {/* Divider */}
@@ -17,9 +17,7 @@ export const Success = () => {
           if (document) {
             const modalElement = document.getElementById(
               "modal"
-            ) as HTMLElement & {
-              close: () => void;
-            };
+            ) as HTMLDialogElement;
             modalElement.close();
           }
         }}
