@@ -13,7 +13,9 @@ describe("Success", () => {
     const closeButton = screen.getByRole("button");
     await userEvent.click(closeButton);
 
-    const dialog: HTMLDialogElement = screen.getByRole("dialog");
+    const dialog: HTMLDialogElement = screen.getByRole("dialog", {
+      hidden: true,
+    });
     await waitFor(() => {
       expect(dialog.open).toBe(false);
     });
