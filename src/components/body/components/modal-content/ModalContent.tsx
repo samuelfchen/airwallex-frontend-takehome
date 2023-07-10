@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { SignupForm } from "./SignupForm";
-import { Success } from "./Success";
+import { SignupForm } from "./components/SignupForm";
+import { Success } from "./components/Success";
 
 export const ModalContent = () => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
