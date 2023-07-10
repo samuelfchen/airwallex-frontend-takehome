@@ -1,6 +1,11 @@
+import { useState } from "react";
 import { SignupForm } from "../signup-form/SignupForm";
 
+const MODAL_TRANSITION_TIME_MS = 200;
+
 export const Body = () => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
   return (
     <div>
       <div className="w-full flex justify-center items-center">
@@ -23,16 +28,24 @@ export const Body = () => {
                   showModal: () => void;
                 };
                 modalElement.showModal();
+                setIsModalOpen(true);
               }
             }}
           >
             Request an invite
           </button>
           {/* Modal */}
-          <dialog id="modal" className="modal">
+          <dialog
+            id="modal"
+            className="modal"
+            onClose={() => {
+              setTimeout(() => {
+                setIsModalOpen(false);
+              }, MODAL_TRANSITION_TIME_MS);
+            }}
+          >
             <div className="modal-box rounded-none">
-              {/* TODO: figure out a way to reset component state after closing modal */}
-              <SignupForm />
+              {isModalOpen && <SignupForm />}
             </div>
             <form method="dialog" className="modal-backdrop">
               <button>close</button>
