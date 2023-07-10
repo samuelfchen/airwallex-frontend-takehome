@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SignupForm } from "../signup-form/SignupForm";
+import { ModalContent } from "./components/modal-content/ModalContent";
 
 const MODAL_TRANSITION_TIME_MS = 200;
 
@@ -45,7 +45,7 @@ export const Body = () => {
             }}
           >
             <div className="modal-box rounded-none">
-              {isModalOpen && <SignupForm />}
+              {isModalOpen && <ModalContent />}
             </div>
             <form method="dialog" className="modal-backdrop">
               <button>close</button>
