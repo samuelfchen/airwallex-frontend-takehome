@@ -1,21 +1,22 @@
-export const InputField = (props: {
+export interface InputFieldProps {
   placeholder?: string;
   onValueChange: (s: string) => void;
   error?: string;
-  tw?: string;
-}) => {
+  tw?: string; // extra tailwind styling
+}
+
+export const InputField = (props: InputFieldProps) => {
   return (
     <div>
       <input
         type="text"
         placeholder={props.placeholder ?? ""}
         className={`input input-bordered w-full rounded-none ${
-          props.error !== undefined ? "input-error" : "mb-7"
+          props.error !== undefined ? "input-error" : "mb-4"
         } ${props.tw ?? ""}`}
         onChange={(e) => {
           props.onValueChange(e.target.value);
         }}
-        // TODO: only perform validation on blur
       />
       {props.error !== undefined && (
         <label className="label my-0">
