@@ -9,7 +9,7 @@ describe("SignupForm", () => {
   beforeAll(() => server.listen());
   afterAll(() => server.close());
 
-  it("renders signup button", () => {
+  it("renders", () => {
     render(
       <SignupForm
         setSuccess={() => {

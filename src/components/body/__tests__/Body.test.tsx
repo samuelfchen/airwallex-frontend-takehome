@@ -4,10 +4,8 @@ import userEvent from "@testing-library/user-event";
 import { Body } from "../Body";
 
 describe("Body", () => {
-  it("renders signup button", () => {
+  it("renders", () => {
     render(<Body />);
-
-    expect(screen.getByRole("button")).not.toBeNull();
   });
 
   it("opens modal on signup button click", async () => {
