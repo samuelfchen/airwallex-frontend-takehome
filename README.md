@@ -8,24 +8,24 @@ Built using React, ViteJS, TailwindCSS, DaisyUI, Vitest, React Testing Library, 
 
 ## Run
 
-```
+```sh
 npm run dev
 ```
 
 ## Build
 
-```
+```sh
 npm run build
 ```
 
 ## Test
 
-```
+```sh
 npm run test
 ```
 
 ## Coverage
 
-```
+```sh
 npm run coverage
 ```
