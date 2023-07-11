@@ -12,6 +12,9 @@ export default defineConfig({
     css: true,
     reporters: ["verbose"],
     setupFiles: "./src/setupTests.ts",
+    env: {
+      VITE_API_URL: "http://api/",
+    },
     coverage: {
       provider: "istanbul",
       reporter: ["text", "json", "html"],
