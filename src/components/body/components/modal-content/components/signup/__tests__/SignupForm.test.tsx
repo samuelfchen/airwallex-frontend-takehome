@@ -59,6 +59,30 @@ describe("SignupForm", () => {
     });
   });
 
+  it("should require full name to be at least 3 characters", async () => {
+    render(
+      <SignupForm
+        setSuccess={() => {
+          return;
+        }}
+      />
+    );
+
+    const submit = screen.getByRole("button")!;
+    const fullName = screen.getByTestId("fullName-input");
+
+    await userEvent.type(fullName.querySelector("input")!, "Al");
+
+    // click button, and assert that error messages are all displayed
+    await userEvent.click(submit);
+
+    await waitFor(() => {
+      expect(fullName).toHaveTextContent(
+        "Full name must be at least 3 characters"
+      );
+    });
+  });
+
   it("should ensure that emails are valid format", async () => {
     render(
       <SignupForm

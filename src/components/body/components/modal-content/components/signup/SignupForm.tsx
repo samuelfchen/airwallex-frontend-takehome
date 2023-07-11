@@ -63,6 +63,11 @@ export const SignupForm = (props: { setSuccess: () => void }) => {
           error={errors.fullName}
           register={register}
           label="fullName"
+          validate={(val) => {
+            if (val.length < 3) {
+              return "Full name must be at least 3 characters.";
+            }
+          }}
         />
         <InputField
           placeholder="Email"
