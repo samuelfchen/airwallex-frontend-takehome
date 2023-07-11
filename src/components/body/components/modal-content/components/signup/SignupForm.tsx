@@ -32,10 +32,15 @@ export const SignupForm = (props: { setSuccess: () => void }) => {
       // If post does not throw, then show success screen.
       props.setSuccess();
     } catch (error) {
-      if (axios.isAxiosError(error) && error.response) {
+      if (axios.isAxiosError(error)) {
         // Set error message to response message
-        const data = error.response.data as { errorMessage: string };
-        setErrorMessage(data.errorMessage ?? "Something went wrong.");
+        const data = error.response?.data as
+          | { errorMessage: string }
+          | undefined;
+        setErrorMessage(
+          // Also handle axios client error (timeout)
+          data?.errorMessage ?? error.message ?? "Something went wrong."
+        );
       }
     } finally {
       // Prevent event propagation to stop 'page refresh' on form submit
