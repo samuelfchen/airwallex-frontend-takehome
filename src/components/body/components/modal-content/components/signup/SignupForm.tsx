@@ -77,6 +77,7 @@ export const SignupForm = (props: { setSuccess: () => void }) => {
           error={errors.email}
           register={register}
           label="email"
+          type="email"
           validate={(val) => {
             if (EmailValidator.validate(val) === false) {
               return "Please enter a valid email.";
@@ -88,6 +89,7 @@ export const SignupForm = (props: { setSuccess: () => void }) => {
           error={errors.confirmEmail}
           register={register}
           label="confirmEmail"
+          type="email"
           validate={(val) => {
             if (EmailValidator.validate(val) === false) {
               return "Please enter a valid email.";

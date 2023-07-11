@@ -3,6 +3,7 @@ import { FormInput } from "../SignupForm";
 
 export const InputField = (props: {
   placeholder?: string;
+  type?: string;
   // For react-hook-form integration
   error?: FieldError;
   register: UseFormRegister<FormInput>;
@@ -12,6 +13,7 @@ export const InputField = (props: {
   return (
     <div data-testid={`${props.label}-input`}>
       <input
+        type={props.type ?? "text"}
         id={props.label}
         className={`
               input input-bordered w-full rounded-none 
