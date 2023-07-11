@@ -16,7 +16,7 @@ export const InputField = (props: {
         type={props.type ?? "text"}
         id={props.label}
         className={`
-              input input-bordered w-full rounded-none 
+              input input-bordered w-full rounded-none focus:outline-none
               ${props.error !== undefined ? "input-error" : "mb-5"}
             `}
         placeholder={props.placeholder}
