@@ -1,8 +1,9 @@
 export const Header = () => {
-  // TODO: adjust where header is located depending on window size
   return (
-    <div className="w-full h-[80px] bg-white border-b flex items-center">
-      <h1 className="ml-20 text-3xl font-medium uppercase">Broccoli & Co.</h1>
+    <div className="w-full h-[80px] bg-white border-b flex items-center sm:justify-normal justify-center">
+      <h1 className="sm:ml-[10vw] lg:ml-[15vw] text-3xl font-medium uppercase">
+        Broccoli & Co.
+      </h1>
     </div>
   );
 };
