@@ -29,6 +29,7 @@ export const SignupForm = (props: { setSuccess: () => void }) => {
         email: data.email,
       });
 
+      // If post does not throw, then show success screen.
       props.setSuccess();
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
@@ -37,10 +38,12 @@ export const SignupForm = (props: { setSuccess: () => void }) => {
         setErrorMessage(data.errorMessage ?? "Something went wrong.");
       }
     } finally {
+      // Prevent event propagation to stop 'page refresh' on form submit
       event?.preventDefault();
     }
   };
   const onError: SubmitErrorHandler<FormInput> = (_, event) => {
+    // Prevent event propagation to stop 'page refresh' on form submit
     event?.preventDefault();
   };
 

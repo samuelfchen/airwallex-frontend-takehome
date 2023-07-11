@@ -55,12 +55,16 @@ export const Body = () => {
             }}
           >
             <div className="modal-box rounded-none">
-              {isModalOpen && (
-                <div data-testid="modal-content">
-                  <ModalContent />
-                </div>
-              )}
+              {
+                // Unmount ModalContent component to clear internal state when modal is closed
+                isModalOpen && (
+                  <div data-testid="modal-content">
+                    <ModalContent />
+                  </div>
+                )
+              }
             </div>
+            {/* DaisyUI component, used to close modal on backdrop click. */}
             <form
               data-testid="modal-backdrop"
               method="dialog"
