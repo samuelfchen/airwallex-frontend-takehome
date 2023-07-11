@@ -27,11 +27,11 @@ export const InputField = (props: {
         })}
       />
       {props.error !== undefined && (
-        <span className="ml-4 text-sm text-red-500 italic">
+        <p className="sm:mx-4 sm:text-left mx-0 text-center text-sm text-red-500 italic">
           {props.error.type === "required"
             ? "This field is required."
             : props.error.message}
-        </span>
+        </p>
       )}
     </div>
   );

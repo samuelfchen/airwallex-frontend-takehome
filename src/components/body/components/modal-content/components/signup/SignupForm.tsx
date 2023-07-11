@@ -100,7 +100,7 @@ export const SignupForm = (props: { setSuccess: () => void }) => {
         />
         <SubmitButton isSubmitting={isSubmitting} />
         {errorMessage !== undefined && (
-          <p className="mt-4 ml-4 text-sm text-red-500 italic">
+          <p className="mt-4 sm:mx-4 mx-0 sm:text-left text-center text-sm text-red-500 italic">
             {errorMessage}
           </p>
         )}
