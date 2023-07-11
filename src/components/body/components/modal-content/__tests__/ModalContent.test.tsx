@@ -5,7 +5,7 @@ import { server } from "../components/signup/__tests__/mocks/server";
 import userEvent from "@testing-library/user-event";
 
 describe("ModalContent", () => {
-  it("renders signup button", () => {
+  it("renders", () => {
     render(<ModalContent />);
   });
 
