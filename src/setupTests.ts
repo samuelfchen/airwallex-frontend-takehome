@@ -7,6 +7,7 @@ import matchers from "@testing-library/jest-dom/matchers";
 expect.extend(matchers);
 
 beforeAll(() => {
+  // https://github.com/jsdom/jsdom/issues/3294#issuecomment-1268330372
   HTMLDialogElement.prototype.show = vi.fn(function mock(
     this: HTMLDialogElement
   ) {

@@ -1,7 +1,6 @@
 export const Success = () => {
   return (
     <div data-testid="success-modal" id="success-modal">
-      {/* Title */}
       <h3 className="italic font-bold text-lg mt-8">All done!</h3>
       {/* Divider */}
       <div className="relative flex py-5 justify-center">

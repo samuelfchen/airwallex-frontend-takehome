@@ -3,6 +3,7 @@ import { FormInput } from "../SignupForm";
 
 export const InputField = (props: {
   placeholder?: string;
+  // For react-hook-form integration
   error?: FieldError;
   register: UseFormRegister<FormInput>;
   label: Path<FormInput>;
