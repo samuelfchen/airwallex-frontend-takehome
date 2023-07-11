@@ -174,6 +174,7 @@ describe("SignupForm", () => {
       expect(screen.getByText("Error: Bad Email.")).not.toBeNull();
     });
   });
+
   it("should call prop function on success", async () => {
     const setSuccessMock = vi.fn();
     render(<SignupForm setSuccess={setSuccessMock} />);
